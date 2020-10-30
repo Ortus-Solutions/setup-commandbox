@@ -5,7 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Ensures the action is working
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-    - name: Run local action
-      uses: ./
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.0
+        with:
+          java-version: 11 
+          
+      - name: Run local action
+        uses: ./
