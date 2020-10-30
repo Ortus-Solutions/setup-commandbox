@@ -5,5 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Ensures the action is working
     steps:
-    - uses: actions/checkout@v2
-    - uses: ./action
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+    - name: List local files
+      run: |
+        ls ./
+        ls ../
+    - name: Run local action
+      uses: ./action
