@@ -1,5 +1,11 @@
 name: Setup CommandBox
 description: Sets up CommandBox for GitHub Actions
+
+inputs:
+  forgeboxAPIKey:
+    description: ForgeBox API Key
+    required: false
+
 runs:
   using: "composite"
   steps: 
@@ -9,4 +15,4 @@ runs:
         sudo echo "deb http://downloads.ortussolutions.com/debs/noarch /" | sudo tee -a /etc/apt/sources.list.d/commandbox.list
         sudo apt-get update && sudo apt-get --assume-yes install rsync jq commandbox
         box install commandbox-cfconfig,commandbox-dotenv,commandbox-docbox
-        box config set endpoints.forgebox.APIToken=${{ secrets.FORGEBOX_API_KEY }} > /dev/null
+        box config set endpoints.forgebox.APIToken=${{ inputs.forgeboxAPIKey }} > /dev/null
