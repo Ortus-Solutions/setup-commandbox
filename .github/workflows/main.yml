@@ -12,6 +12,9 @@ jobs:
         uses: actions/setup-java@v1.4.0
         with:
           java-version: 11 
-          
+
       - name: Run local action
         uses: ./
+
+      - name: Output installed CommandBox version
+        run: box version
