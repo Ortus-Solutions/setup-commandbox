@@ -1,0 +1,9 @@
+on: [push, pull_request]
+
+jobs:
+  smoke_test:
+    runs-on: ubuntu-latest
+    name: Ensures the action is working
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./action
