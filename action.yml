@@ -1,6 +1,10 @@
 name: Setup CommandBox
 description: Sets up CommandBox for GitHub Actions
 
+branding:
+  icon: terminal
+  color: blue
+
 inputs:
   forgeboxAPIKey:
     description: ForgeBox API Key
