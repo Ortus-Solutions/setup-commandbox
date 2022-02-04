@@ -22,14 +22,15 @@ runs:
       run: |
         # Latest Stable or Specific Version
         if [[ "${{ inputs.version }}" == "latest" ]] ; then
-          curl -vSL -o box.zip https://www.ortussolutions.com/parent/download/commandbox/type/bin
+          curl -SL -o box.zip https://www.ortussolutions.com/parent/download/commandbox/type/bin
         else
-          curl -vSL -o box.zip https://downloads.ortussolutions.com/ortussolutions/commandbox/${{ inputs.version }}/commandbox-bin-${{ inputs.version }}.zip
+          curl -SL -o box.zip https://downloads.ortussolutions.com/ortussolutions/commandbox/${{ inputs.version }}/commandbox-bin-${{ inputs.version }}.zip
         fi
         # Debug download
-        ls -l
+        #ls -l
         # Unzip and Install
-        unzip -v box.zip -d /usr/local/bin
+        unzip box.zip -d /usr/local/bin/
+        # Install global dependencies
         box install commandbox-cfconfig,commandbox-dotenv
         # Add ForgeBox Key
         if [[ "${{ inputs.forgeboxAPIKey }}" != "none" ]] ; then
