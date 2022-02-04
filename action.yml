@@ -14,6 +14,10 @@ inputs:
     description: "CommandBox version to install"
     required: false
     default: 'latest'
+  installGlobalDependencies:
+    description: "Install cfconfig and dotenv"
+    required: false
+    default: "true"
 
 runs:
   using: "composite"
@@ -33,7 +37,9 @@ runs:
         # Unzip and Install
         unzip box.zip -d /usr/local/bin/
         # Install global dependencies
-        box install commandbox-cfconfig,commandbox-dotenv
+        if [[ "${{ inputs.installGlobalDependencies }}" == "true" ]] ; then
+          box install commandbox-cfconfig,commandbox-dotenv
+        fi
         # Add ForgeBox Key
         if [[ "${{ inputs.forgeboxAPIKey }}" != "none" ]] ; then
           echo "Setting up ForgeBox API Key..."

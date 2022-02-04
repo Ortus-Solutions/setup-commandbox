@@ -39,6 +39,26 @@ jobs:
       - name: Show Config
         run: box config show endpoints.forgebox.APIToken
 
+  test_no_global_dependencies:
+    runs-on: ubuntu-latest
+    name: CommandBox with no dependencies
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 11
+
+      - name: Run with Specific Version
+        uses: ./
+        with:
+          installGlobalDependencies: false
+
+      - name: Show Version
+        run: box version
+
   test_with_version:
     runs-on: ubuntu-latest
     name: CommandBox with Version
