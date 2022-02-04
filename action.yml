@@ -22,8 +22,10 @@ runs:
       run: |
         # Latest Stable or Specific Version
         if [[ "${{ inputs.version }}" == "latest" ]] ; then
+          echo "Installing Latest Stable CommandBox"
           curl -SL -o box.zip https://www.ortussolutions.com/parent/download/commandbox/type/bin
         else
+          echo "Installing CommandBox v${{ inputs.version }}"
           curl -SL -o box.zip https://downloads.ortussolutions.com/ortussolutions/commandbox/${{ inputs.version }}/commandbox-bin-${{ inputs.version }}.zip
         fi
         # Debug download
@@ -34,5 +36,6 @@ runs:
         box install commandbox-cfconfig,commandbox-dotenv
         # Add ForgeBox Key
         if [[ "${{ inputs.forgeboxAPIKey }}" != "none" ]] ; then
+          echo "Setting up ForgeBox API Key..."
           box config set endpoints.forgebox.APIToken=${{ inputs.forgeboxAPIKey }} > /dev/null
         fi

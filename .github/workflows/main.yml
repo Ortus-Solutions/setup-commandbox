@@ -56,5 +56,5 @@ jobs:
         with:
           version: 5.0.0
 
-      - name: Show Config
+      - name: Show Version
         run: box version
