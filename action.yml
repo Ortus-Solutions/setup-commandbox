@@ -9,7 +9,7 @@ inputs:
   forgeboxAPIKey:
     description: "ForgeBox API Key"
     required: false
-    default: 'none'
+    default: ''
   version:
     description: "CommandBox version to install"
     required: false
@@ -32,8 +32,6 @@ runs:
           echo "Installing CommandBox v${{ inputs.version }}"
           curl -SL -o box.zip https://downloads.ortussolutions.com/ortussolutions/commandbox/${{ inputs.version }}/commandbox-bin-${{ inputs.version }}.zip
         fi
-        # Debug download
-        #ls -l
         # Unzip and Install
         unzip box.zip -d /usr/local/bin/
         # Install global dependencies
@@ -41,7 +39,7 @@ runs:
           box install commandbox-cfconfig,commandbox-dotenv
         fi
         # Add ForgeBox Key
-        if [[ "${{ inputs.forgeboxAPIKey }}" != "none" ]] ; then
+        if [[ "${{ inputs.forgeboxAPIKey }}" != "" ]] ; then
           echo "Setting up ForgeBox API Key..."
           box config set endpoints.forgebox.APIToken=${{ inputs.forgeboxAPIKey }} > /dev/null
         fi

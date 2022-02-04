@@ -51,7 +51,7 @@ jobs:
         with:
           java-version: 11
 
-      - name: Run with Specific Version
+      - name: Run with no global dependencies
         uses: ./
         with:
           installGlobalDependencies: false
