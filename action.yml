@@ -9,15 +9,25 @@ inputs:
   forgeboxAPIKey:
     description: ForgeBox API Key
     required: false
+  version:
+    description: CommandBox Version
+    required: false
 
 runs:
   using: "composite"
   steps:
     - shell: bash
       run: |
-        curl -SL -o box.zip https://www.ortussolutions.com/parent/download/commandbox/type/bin
+        # Latest Stable or Specific Version
+        if [[ ! -z "${{ inputs.version }}" ]] ; then
+          curl -SL -o box.zip https://www.ortussolutions.com/parent/download/commandbox/type/bin
+        else
+          curl -SL -o box.zip https://downloads.ortussolutions.com/ortussolutions/commandbox/${{ inputs.version }}/commandbox-bin-${{ inputs.version }}.zip
+        fi
+        # Unzip and Install
         unzip box.zip -d /usr/local/bin
         box install commandbox-cfconfig,commandbox-dotenv
+        # Add ForgeBox Key
         if [[ ! -z "${{ inputs.forgeboxAPIKey }}" ]] ; then
           box config set endpoints.forgebox.APIToken=${{ inputs.forgeboxAPIKey }} > /dev/null
         fi

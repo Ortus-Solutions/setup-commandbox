@@ -11,10 +11,20 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v1.4.3
         with:
-          java-version: 11 
+          java-version: 11
 
       - name: Run local action
         uses: ./
 
       - name: Output installed CommandBox version
         run: box version
+
+      - name: Run with ForgeBox Key
+        uses: ./
+        with:
+          forgeboxAPIKey: "123"
+
+      - name: Install Specific Version
+        uses: ./
+        with:
+          version: 5.0.0
