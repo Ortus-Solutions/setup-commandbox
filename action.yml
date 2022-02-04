@@ -1,4 +1,4 @@
-name: Setup CommandBox
+name: Setup CommandBox CLI
 description: Sets up CommandBox for GitHub Actions
 
 branding:
