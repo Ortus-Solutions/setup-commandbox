@@ -43,7 +43,7 @@ runs:
         # Install global dependencies
         INSTALL_DEPENDENCIES=${{ inputs.install }}
         if [[ "${{ inputs.installGlobalDependencies }}" == "true" ]] ; then
-          if[[ "$INSTALL_DEPENDENCIES" == "" ]]; then
+          if [[ "$INSTALL_DEPENDENCIES" == "" ]] ; then
             INSTALL_DEPENDENCIES=commandbox-cfconfig,commandbox-dotenv
           else
             INSTALL_DEPENDENCIES=$INSTALL_DEPENDENCIES,commandbox-cfconfig,commandbox-dotenv
