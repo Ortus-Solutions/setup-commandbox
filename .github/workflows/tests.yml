@@ -36,7 +36,7 @@ jobs:
         with:
           forgeboxAPIKey: "123"
 
-      - name: Show Config
+      - name: Show ForgeBox Token
         run: box config show endpoints.forgebox.APIToken
 
   test_with_global_dependencies:
@@ -56,8 +56,8 @@ jobs:
         with:
           installGlobalDependencies: true
 
-      - name: Show Version
-        run: box version
+      - name: Show Installed Dependencies
+        run: box list --system
 
   test_with_install:
     runs-on: ubuntu-latest
@@ -76,8 +76,8 @@ jobs:
         with:
           install: "commandbox-fusionreactor"
 
-      - name: Show Version
-        run: box version
+      - name: Show Installed Dependencies
+        run: box list --system
 
   test_with_version:
     runs-on: ubuntu-latest

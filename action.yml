@@ -50,6 +50,7 @@ runs:
           fi
         fi
         if [[ "$INSTALL_DEPENDENCIES" != "" ]] ; then
+          echo "Detected installation of global packages: $INSTALL_DEPENDENCIES"
           box install $INSTALL_DEPENDENCIES
         fi
 
