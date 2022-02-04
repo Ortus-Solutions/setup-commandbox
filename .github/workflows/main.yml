@@ -3,7 +3,7 @@ on: [push, pull_request]
 jobs:
   smoke_test:
     runs-on: ubuntu-latest
-    name: Ensures the action is working
+    name: CommandBox Vanilla
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -19,15 +19,42 @@ jobs:
       - name: Output installed CommandBox version
         run: box version
 
+  test_with_forgebox_key:
+    runs-on: ubuntu-latest
+    name: CommandBox with ForgeBox Key
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 11
+
       - name: Run with ForgeBox Key
         uses: ./
         with:
           forgeboxAPIKey: "123"
 
-      - name: Install Specific Version
+      - name: Show Config
+        run: box config show endpoints.forgebox.APIToken
+
+  test_with_version:
+    runs-on: ubuntu-latest
+    name: CommandBox with Version
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 11
+
+      - name: Run with Specific Version
         uses: ./
         with:
           version: 5.0.0
 
-      - name: Output installed CommandBox version
+      - name: Show Config
         run: box version
