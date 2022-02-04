@@ -39,9 +39,9 @@ jobs:
       - name: Show Config
         run: box config show endpoints.forgebox.APIToken
 
-  test_no_global_dependencies:
+  test_with_global_dependencies:
     runs-on: ubuntu-latest
-    name: CommandBox with no dependencies
+    name: CommandBox with dependencies
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -51,10 +51,30 @@ jobs:
         with:
           java-version: 11
 
-      - name: Run with no global dependencies
+      - name: Run with global dependencies
         uses: ./
         with:
-          installGlobalDependencies: false
+          installGlobalDependencies: true
+
+      - name: Show Version
+        run: box version
+
+  test_with_install:
+    runs-on: ubuntu-latest
+    name: CommandBox with custom installs
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 11
+
+      - name: Run
+        uses: ./
+        with:
+          install: "commandbox-fusionreactor"
 
       - name: Show Version
         run: box version
