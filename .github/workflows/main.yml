@@ -28,3 +28,6 @@ jobs:
         uses: ./
         with:
           version: 5.0.0
+
+      - name: Output installed CommandBox version
+        run: box version
