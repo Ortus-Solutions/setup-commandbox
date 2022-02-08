@@ -4,6 +4,8 @@ Sets up [CommandBox CLI](https://www.ortussolutions.com/products/commandbox) for
 
 ## Inputs
 
+The following are all the different input variables you can use on the action so you can setup CommandBox with ForgeBox API keys, default packages, specific versions and much more.
+
 | Input                         | Type          | Default       | Description |
 | -------------                 | ------------- | ------------- | ----------- |
 | `forgeboxAPIKey`              | string        | ---           | If added to the action, we will seed it in CommandBox for you.
