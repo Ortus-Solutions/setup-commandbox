@@ -11,7 +11,7 @@ The following are all the different input variables you can use on the action so
 | `forgeboxAPIKey`              | string        | ---           | If added to the action, we will seed it in CommandBox for you.
 | `installGlobalDependencies`   | boolean       | `false`       | If true then it will install: `commandbox-cfconfig, commandbox-dotenv` for you
 | `install`                     | string        | ---           | If added, a comma-delmitted list of packages to install upon installation of the binary for you.
-| `warmup`                      | boolean       | `false`       | If true and no installs detected, it will run the box binary to expand it and warm it up for you.
+| `warmup`                      | boolean       | `false`       | If true and no install inputs detected, it will run the box binary.
 | `version`                     | semver        | `latest`      | The CommandBox version to install, if not passed we use the latest stable.
 
 ## Usage

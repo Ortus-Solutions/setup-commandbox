@@ -10,10 +10,6 @@ inputs:
     description: "ForgeBox API Key"
     required: false
     default: ''
-  version:
-    description: "CommandBox version to install"
-    required: false
-    default: 'latest'
   install:
     description: "Comma-delimitted list of packages to install"
     required: false
@@ -22,6 +18,14 @@ inputs:
     description: "Install cfconfig and dotenv"
     required: false
     default: "false"
+  warmup:
+    description: "Execute a box version upon installation"
+    required: false
+    default: 'false'
+  version:
+    description: "CommandBox version to install"
+    required: false
+    default: 'latest'
 
 runs:
   using: "composite"
@@ -58,4 +62,9 @@ runs:
         if [[ "${{ inputs.forgeboxAPIKey }}" != "" ]] ; then
           echo "Setting up ForgeBox API Key..."
           box config set endpoints.forgebox.APIToken=${{ inputs.forgeboxAPIKey }} > /dev/null
+        fi
+
+        # Warmup
+        if [[ "${{ inputs.warmup }}" == "true" ]] ; then
+          box version
         fi

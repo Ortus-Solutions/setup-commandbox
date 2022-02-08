@@ -19,6 +19,23 @@ jobs:
       - name: Output installed CommandBox version
         run: box version
 
+  test_with_warmup:
+    runs-on: ubuntu-latest
+    name: CommandBox With Warmup
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 11
+
+      - name: Run local action
+        uses: ./
+        with:
+          warmup: true
+
   test_with_forgebox_key:
     runs-on: ubuntu-latest
     name: CommandBox with ForgeBox Key
