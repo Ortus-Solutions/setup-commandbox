@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Ability to install any package when installed via the `install` input
 * Ability to install ANY CommandBox version by leveraging the `version` input
 * Ability to disable/enable the installation of our global dependencies via the `installGlobalDependencies` input
+* Ability to run a `box version` upon installation via the `warmup` input
 
 ### Changed
 
