@@ -71,7 +71,7 @@ jobs:
       - name: Run with global dependencies
         uses: ./
         with:
-          installGlobalDependencies: true
+          installSystemModules: true
 
       - name: Show Installed Dependencies
         run: box list --system

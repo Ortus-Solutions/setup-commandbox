@@ -14,7 +14,7 @@ inputs:
     description: "Comma-delimitted list of packages to install"
     required: false
     default: ""
-  installGlobalDependencies:
+  installSystemModules:
     description: "Install cfconfig and dotenv"
     required: false
     default: "false"
@@ -46,7 +46,7 @@ runs:
 
         # Install global dependencies
         INSTALL_DEPENDENCIES=${{ inputs.install }}
-        if [[ "${{ inputs.installGlobalDependencies }}" == "true" ]] ; then
+        if [[ "${{ inputs.installSystemModules }}" == "true" ]] ; then
           if [[ "$INSTALL_DEPENDENCIES" == "" ]] ; then
             INSTALL_DEPENDENCIES=commandbox-cfconfig,commandbox-dotenv
           else
