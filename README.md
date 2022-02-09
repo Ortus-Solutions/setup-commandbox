@@ -20,14 +20,14 @@ Simple usage:
 
 ```yaml
 - name: Setup CommandBox
-  uses: Ortus-Solutions/setup-commandbox@v1.0.0
+  uses: Ortus-Solutions/setup-commandbox@v2.0.0
 ```
 
 With Global Dependencies:
 
 ```yaml
 - name: Setup CommandBox
-  uses: Ortus-Solutions/setup-commandbox@v1.0.0
+  uses: Ortus-Solutions/setup-commandbox@v2.0.0
   with:
     installSystemModules: true
 ```
@@ -36,7 +36,7 @@ With Specific Dependencies:
 
 ```yaml
 - name: Setup CommandBox
-  uses: Ortus-Solutions/setup-commandbox@v1.0.0
+  uses: Ortus-Solutions/setup-commandbox@v2.0.0
   with:
     install: commandbox-fusionreactor
 ```
@@ -45,7 +45,7 @@ With ForgeBox Token
 
 ```yaml
 - name: Setup CommandBox With ForgeBox Key
-  uses: Ortus-Solutions/setup-commandbox@v1.0.0
+  uses: Ortus-Solutions/setup-commandbox@v2.0.0
   with:
     forgeboxAPIKey: my-token
 ```
@@ -54,7 +54,7 @@ Install a specific version of CommandBox
 
 ```yaml
 - name: Setup CommandBox With ForgeBox Key
-  uses: Ortus-Solutions/setup-commandbox@v1.0.0
+  uses: Ortus-Solutions/setup-commandbox@v2.0.0
   with:
     version: 5.0.0
 ```
