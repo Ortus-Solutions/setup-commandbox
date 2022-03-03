@@ -38,7 +38,7 @@ runs:
         fi
 
         # Unzip and Install
-        unzip box.zip -d /usr/local/bin/
+        unzip box.zip -d /usr/local/bin/ && rm box.zip
 
         # Install global dependencies
         INSTALL_DEPENDENCIES=${{ inputs.install }}
