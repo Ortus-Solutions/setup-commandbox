@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ----
 
+## [2.0.1] => 2022-MAR-03
+
+### Fixed
+
+* Remove the `box.zip` that downloads as part of the cleanup cycle.
+
+----
+
 ## [2.0.0] => 2022-FEB-08
 
 ### Added
