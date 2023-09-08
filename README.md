@@ -53,8 +53,8 @@ With ForgeBox Token
 Install a specific version of CommandBox
 
 ```yaml
-- name: Setup CommandBox With ForgeBox Key
+- name: Setup CommandBox with specific version
   uses: Ortus-Solutions/setup-commandbox@v2.0.1
   with:
-    version: 5.0.0
+    version: 5.9.1
 ```
